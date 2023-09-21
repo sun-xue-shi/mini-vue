@@ -66,7 +66,6 @@ export function mountComponent(
     ...instance.setupState
   }
 
-  // setupRenderEffect
   instance.update = effect(
     () => {
       if (!instance.isMounted) {
@@ -76,9 +75,7 @@ export function mountComponent(
         instance.isMounted = true
         vnode.el = instance.subTree.el
       } else {
-        // update
 
-        // instance.next存在，代表是被动更新。否则是主动更新
         if (instance.next) {
           vnode = instance.next
           instance.next = null

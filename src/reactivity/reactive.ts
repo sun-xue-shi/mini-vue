@@ -14,8 +14,9 @@ export function reactive(target: any) {
   const proxy: Record<string | number | symbol, any> = new Proxy(target, {
     get(target, key) {
       if (key === '__isReactive') return true
-      const res = Reflect.get(target, key)
+
       track(target, key)
+      const res = Reflect.get(target, key)
       // 解决深层对象obj{obj{}}代理问题
       return isObject(res) ? reactive(res) : res
     },

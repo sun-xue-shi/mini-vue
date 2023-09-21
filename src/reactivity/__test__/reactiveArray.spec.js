@@ -182,7 +182,7 @@ describe('reactive array', () => {
       fn(observed.length)
     })
     expect(fn).toHaveBeenCalledTimes(1)
- 
+
     observed.x = 'x'
     expect(fn).toHaveBeenCalledTimes(1)
     observed[-1] = 'x'

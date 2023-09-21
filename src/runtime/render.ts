@@ -254,7 +254,7 @@ function patchChildren(
       mountChildren(newChildren as TypeVnode[], container, anchor)
     }
   } else {
-    if (newShapFlag & ShapeFlags.ARRAY_CHILDREN) {
+    if (prevShapeFlag & ShapeFlags.ARRAY_CHILDREN) {
       unmountChildren(newChildren as TypeVnode[])
     }
     container.textContent = ''

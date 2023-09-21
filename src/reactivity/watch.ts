@@ -51,7 +51,7 @@ export function watch(
   if (options?.immediate) {
     job()
   } else {
-    oldVal = job()
+    oldVal = effectFn()
   }
 }
 
